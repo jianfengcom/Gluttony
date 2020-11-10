@@ -33,13 +33,14 @@ public class URLDemo {
      * key=下载图片
      *
      * ps: 需要测试线上的, 才能出结果; 本地乱写代理配置都没问题
+     * 线上测试: 下载新爬虫(pconline-dlNewSpider) 192.168.241.116:8081/cac/checki.do?img=&imgFullName=
      *
-     * @Author 袁媛-pc
-     * @param imgPath 图片链接: http和https处理方式略有不同
+     * @param imgPath        图片链接: http和https处理方式略有不同
      * @param targetFullPath
      * @throws Exception
+     * @Author 袁媛-pc
      */
-    public static void downloadImg(String imgPath, String targetFullPath) throws Exception{
+    public static void downloadImg(String imgPath, String targetFullPath) throws Exception {
         URLConnection conn = null;
 
         // 设置代理服务
@@ -56,7 +57,7 @@ public class URLDemo {
         // String password = "geturl:nBgWE8kLuLqhs"; _c
         URL url = new URL(imgPath);
         if ("https".equalsIgnoreCase(url.getProtocol())) {
-             SSLUtils.ignoreSSL();
+            SSLUtils.ignoreSSL();
         }
         conn = url.openConnection();
         /*sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
@@ -78,7 +79,7 @@ public class URLDemo {
         conn.connect();
 
         InputStream in = new BufferedInputStream(conn.getInputStream());
-        OutputStream out =  new BufferedOutputStream(new java.io.FileOutputStream(targetFullPath));
+        OutputStream out = new BufferedOutputStream(new java.io.FileOutputStream(targetFullPath));
         if (in == null) {
             throw new RuntimeException("获得网络资源出错");
         }
