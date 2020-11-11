@@ -5,6 +5,7 @@
 
     <modules>
         <module>api</module>
+        <module>sbjsp</module>
     </modules>
 
     <parent>
