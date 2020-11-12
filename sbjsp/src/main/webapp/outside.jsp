@@ -3,15 +3,13 @@
 <head>
     <title>Title</title>
 </head>
-<body>forward
+<body>outside
 
 <%--木有就真的木有--%>
 ${msg}
 
 <%--木有就显示null--%>
 <%=request.getAttribute("msg")%>
-
-<%=response.getHeader("fn")%>
 
 </body>
 </html>
