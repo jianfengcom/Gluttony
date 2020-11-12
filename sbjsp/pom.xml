@@ -16,7 +16,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>--><!--测试和编译阶段-->
         </dependency>
     </dependencies>
 </project>

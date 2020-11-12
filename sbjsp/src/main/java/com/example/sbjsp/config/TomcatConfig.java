@@ -27,6 +27,7 @@ public class TomcatConfig {
                 if (factory instanceof TomcatServletWebServerFactory) {
                     TomcatServletWebServerFactory tomcat = (TomcatServletWebServerFactory) factory;
                     if (!StringUtils.isEmpty(prgRoot)) {
+                        System.out.println("prgRoot=" + prgRoot);
                         File root = new File(prgRoot);
                         tomcat.setDocumentRoot(root);
                     }
