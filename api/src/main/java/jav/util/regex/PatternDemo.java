@@ -34,4 +34,18 @@ public class PatternDemo {
         target = target.trim();
         return target.replaceAll(" ", "_");
     }
+
+
+    /**
+     * key=过滤<img>
+     * <img src="http://img.pconline.com.cn/images/upload/upc/tx/pc_best/2011/13/c89/240380649_1605244147.jpg">
+     * 电脑网-今日聚超值(pconline-best)
+     *
+     * @param content
+     * @return
+     */
+    public static String filterImg(String content) {
+        Pattern pattern = Pattern.compile("<img[^>]*[0-9]+_[0-9]{10}\\.jpg[^>]*/?>");
+        return pattern.matcher(content).replaceAll("");
+    }
 }
