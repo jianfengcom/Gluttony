@@ -1,28 +1,30 @@
 package com.example.web.controller;
 
-import jav.security.EncryptionUtil;
+import or.apache.commons.httpclient.HttpClientUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ApiController {
+
+    @RequestMapping("/postMethod.do")
+    @ResponseBody
+    public String postMethod() {
+        String url = "https://best.pconline.com.cn/intf/oneBuyer/getTopicList.jsp";
+        Map<String, String> params = new HashMap<>();
+        params.put("ids", "62,64");
+
+        return HttpClientUtil.postMethod(url, params);
+    }
 
     @RequestMapping("/api.do")
     @ResponseBody
     public String api() {
         return "ApiController.api";
-    }
-
-    // localhost:8080/dj.do?masterId=linkId=
-    @RequestMapping("/dj.do")
-    @ResponseBody
-    public String dj(@RequestParam(required = false, defaultValue = "1357799") long masterId,
-                     @RequestParam(required = false, defaultValue = "10121462") long linkId,
-                     @RequestParam(required = false, defaultValue = "3") int location) {
-        EncryptionUtil.downloadJsp(masterId, linkId, location);
-        return "ApiController.dj";
     }
 }
 /*
