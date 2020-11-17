@@ -12,6 +12,11 @@
     <packaging>war</packaging>
 
     <dependencies>
+        <dependency>
+            <artifactId>api</artifactId>
+            <groupId>com.example</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- 使用jsp引擎，springboot内置tomcat没有此依赖 -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>

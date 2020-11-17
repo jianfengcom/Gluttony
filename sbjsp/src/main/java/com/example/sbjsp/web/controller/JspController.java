@@ -1,17 +1,20 @@
 package com.example.sbjsp.web.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.io.*;
 import java.util.Collection;
 import java.util.Enumeration;
 
 @Controller
 public class JspController {
+    @Value("${server.tomcat.prg-root}")
+    private String prgRoot;
 
     // key=请求转发的三种方法
     // ps: 请求转发是一次请求，地址栏不会发生变化
