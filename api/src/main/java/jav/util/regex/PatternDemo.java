@@ -1,5 +1,8 @@
 package jav.util.regex;
 
+import org.springframework.util.StringUtils;
+
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -18,6 +21,7 @@ public class PatternDemo {
 
     /**
      * key=替换汉字
+     *
      * @param source
      * @return
      */
@@ -47,5 +51,35 @@ public class PatternDemo {
     public static String filterImg(String content) {
         Pattern pattern = Pattern.compile("<img[^>]*[0-9]+_[0-9]{10}\\.jpg[^>]*/?>");
         return pattern.matcher(content).replaceAll("");
+    }
+
+    /**
+     * key=重组URL
+     * ps: 家居网-品牌库(pchouse-product) UrlRewriteFilter
+     *
+     * @param uri
+     */
+    public static void recombineUrl(String uri) {
+        if (StringUtils.isEmpty(uri))
+            uri = "/product/top/c199.html";
+
+        Pattern WAP_TOP_PATTERN = Pattern.compile("/product/top/((b|c|n)?(\\d+)\\.html)?$");
+        Matcher matcher = WAP_TOP_PATTERN.matcher(uri);
+
+        if (matcher.matches()) {
+            int id = Integer.valueOf(matcher.group(3));
+            System.out.println("group(3)=" + id);
+            String path = "/jsp/wap/top";
+            String type = matcher.group(2);
+            System.out.println("group(2)=" + type);
+            System.out.println("group(1)=" + matcher.group(1));
+            if (!StringUtils.isEmpty(type) && "c".equalsIgnoreCase(type)) {
+                path += "/product_index.jsp";
+            } else {
+                path += "/brand_index.jsp";
+            }
+            path += (id > 0 ? "?cateId=" + id : "");
+            System.out.println("path=" + path);
+        }
     }
 }
