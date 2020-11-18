@@ -56,6 +56,7 @@ public class PatternDemo {
     /**
      * key=重组URL
      * ps: 家居网-品牌库(pchouse-product) UrlRewriteFilter
+     * 对应URL: https://m.pchouse.com.cn/product/top/
      *
      * @param uri
      */
