@@ -1,0 +1,3 @@
+ALTER TABLE `lib_rank_brand` ADD COLUMN `is_hand_set` tinyint(2) DEFAULT NULL COMMENT '是否手动设置' AFTER `hot_value`;
+
+DROP
