@@ -83,4 +83,14 @@ public class PatternDemo {
             System.out.println("path=" + path);
         }
     }
+
+    /**
+     * key=验证单个中文
+     * @param str
+     * @return
+     */
+    public static boolean zhongwen(String str) {
+        String regex = "[\u0391-\uFFE5]";
+        return str.matches(regex);
+    }
 }
