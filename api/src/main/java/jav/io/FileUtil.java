@@ -1,6 +1,9 @@
 package jav.io;
 
+import org.springframework.util.StringUtils;
+
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -116,6 +119,33 @@ public class FileUtil {
             contentLine = bufferedReader.readLine();
         }
         bufferedReader.close();
+    }
+
+    // 写出 todo
+    public static void write(List<String> urlList) throws Exception {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("/baidu/b.txt"));
+        for (String url : urlList) {
+            writer.write(url);
+            writer.newLine();
+        }
+        writer.flush();
+        writer.close();
+    }
+    // 读入
+    public static String read() throws Exception {
+        BufferedReader reader = new BufferedReader(new FileReader("/baidu/a.txt"));
+        StringBuilder sb = new StringBuilder();
+        String str;
+        while ((str = reader.readLine()) != null) {
+            if (StringUtils.isEmpty(str.trim())) {
+                continue;
+            }
+            sb.append(str.trim() + ",");
+        }
+        String urls = sb.toString();
+        urls = urls.substring(0, urls.length() - 1);
+        reader.close();
+        return urls;
     }
 }
 
