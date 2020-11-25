@@ -1,8 +1,11 @@
 package jav.io;
 
+import jav.text.DateFormatUtil;
+import jav.util.DateUtil;
 import org.springframework.util.StringUtils;
 
 import java.io.*;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -147,13 +150,68 @@ public class FileUtil {
 
     // 写入
     public static void write(List<String> urlList) throws Exception {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("/data/baidu/submit_api.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("/data/baidu/build_api.txt"));
         for (String url : urlList) {
             writer.write(url);
             writer.newLine();
         }
         writer.flush();
         writer.close();
+    }
+
+    public static void file2File() {
+        long startTime = System.currentTimeMillis();
+        BufferedWriter writer = null;
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("/data/baidu/build_api.txt"));
+            String str;
+            int count = 0;
+            Date now = new Date();
+            while ((str = reader.readLine()) != null) {
+                if (StringUtils.isEmpty(str.trim())) {
+                    continue;
+                }
+                if (count % 1000 == 0) {
+                    if (count != 0)
+                        now = DateUtil.next(now, DateUtil.ONE_DAY);
+
+                    String fullName = "/data/baidu/submit_api" +
+                            DateFormatUtil.format(now, "yyyy-MM-dd") + ".txt";
+
+                    // 文件如果不存在, 就新建
+                    File tempFile = new File(fullName);
+                    if (!tempFile.exists()) {
+                        tempFile.createNewFile();
+                    }
+//                    writer = new BufferedWriter(new FileWriter(fullName));
+                    writer = new BufferedWriter(new OutputStreamWriter(
+                            new FileOutputStream(tempFile, true), "UTF-8"));
+                }
+                writer.write(str.trim());
+                writer.newLine();
+                count++;
+            }
+            System.out.println("写入文件耗时：" + (System.currentTimeMillis() - startTime) + "毫秒");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
 
