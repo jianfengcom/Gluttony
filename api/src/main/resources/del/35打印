@@ -1,0 +1,66 @@
+[2020-11-26 03:37:48.457] 2020-11-26 03:37:48,457 [http-app-a-8081-3$187473926] INFO  us.codecraft.webmagic.Spider - Spider www.wandoujia.com started!
+[2020-11-26 03:37:48.595] 2020-11-26 03:37:48,595 [pool-2-thread-1] INFO  cn.pconline.framework.spider.util.PcSimpleProxyProvider - 获取到的ip地址为:192.168.57.15:1080
+[2020-11-26 03:37:49.148] 2020-11-26 03:37:49,147 [pool-2-thread-1] INFO  us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page success https://www.wandoujia.com/apps/8031852
+[2020-11-26 03:37:49.353] ##softUrl == https://www.wandoujia.com/apps/8031852
+[2020-11-26 03:37:49.353] ##pageCode == 200
+[2020-11-26 03:37:49.353] ##site_target == 0
+[2020-11-26 03:37:49.353] ##isDown == 1
+[2020-11-26 03:37:49.353] ##isList == false
+[2020-11-26 03:37:49.358] 2020-11-26 03:37:49,355 [pool-2-thread-1] ERROR us.codecraft.webmagic.Spider - process request Request{url='https://www.wandoujia.com/apps/8031852', method='null', extras=null, priority=0, headers={}, cookies={}} error
+[2020-11-26 03:37:49.358] java.lang.NullPointerException
+[2020-11-26 03:37:49.358]       at cn.pconline.pcdlc.spider.task.android.shop.AndroidSpiderPipeline.process(AndroidSpiderPipeline.java:44)
+[2020-11-26 03:37:49.358]       at us.codecraft.webmagic.Spider.onDownloadSuccess(Spider.java:418)
+[2020-11-26 03:37:49.358]       at us.codecraft.webmagic.Spider.processRequest(Spider.java:406)
+[2020-11-26 03:37:49.358]       at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+[2020-11-26 03:37:49.358]       at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+[2020-11-26 03:37:49.358]       at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+[2020-11-26 03:37:49.358]       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+[2020-11-26 03:37:49.358]       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+[2020-11-26 03:37:49.358]       at java.lang.Thread.run(Thread.java:748)
+[2020-11-26 03:37:49.358] 2020-11-26 03:37:49,358 [http-app-a-8081-3$187473926] INFO  us.codecraft.webmagic.Spider - Spider www.wandoujia.com closed! 1 pages downloaded.
+[2020-11-26 03:37:49.365] 2020-11-26 03:37:49,365 [http-app-a-8081-3$187473926] INFO  cn.pconline.framework.spider.util.PcSimpleProxyProvider - 获取到的ip地址为:192.168.57.22:1080
+[2020-11-26 03:37:49.570] 2020-11-26 03:37:49,569 [http-app-a-8081-3$187473926] INFO  us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page success https://www.wandoujia.com/apps/8031852
+[2020-11-26 03:39:12.967] false
+[2020-11-26 03:39:12.967] false
+[2020-11-26 03:39:12.969] 2020-11-26 03:39:12,969 [http-app-a-8081-4$586225275] INFO  us.codecraft.webmagic.Spider - Spider sj.qq.com started!
+[2020-11-26 03:39:12.975] 2020-11-26 03:39:12,975 [pool-3-thread-1] INFO  cn.pconline.framework.spider.util.PcSimpleProxyProvider - 获取到的ip地址为:192.168.57.22:1080
+[2020-11-26 03:39:13.182] 2020-11-26 03:39:13,182 [pool-3-thread-1] INFO  us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page success https://sj.qq.com/myapp/detail.htm?apkName=com.hnr.dxxw
+[2020-11-26 03:39:13.278] ##softUrl == https://sj.qq.com/myapp/detail.htm?apkName=com.hnr.dxxw
+[2020-11-26 03:39:13.278] ##pageCode == 200
+[2020-11-26 03:39:13.278] ##site_target == 3
+[2020-11-26 03:39:13.278] ##name == 大象新闻
+[2020-11-26 03:39:13.278] ##alias == 大象新闻
+[2020-11-26 03:39:13.278] ##logo == https://pp.myapp.com/ma_icon/0/icon_53907319_1604665658/96
+[2020-11-26 03:39:13.278] ##fileSize == 64.95M
+[2020-11-26 03:39:13.279] ##version == 1.16.5
+[2020-11-26 03:39:13.279] ##publisher == 河南广播电视台
+[2020-11-26 03:39:13.279] ##apkDownloadUrl == https://imtt.dd.qq.com/16891/apk/3D5DA18FE787101C3954DF1F69410A33.apk?fsname=com.hnr.dxxw_v1.16.5_202011006.apk&csr=1bbd
+[2020-11-26 03:39:13.279] ##seoTitle == 大象新闻下载_大象新闻手机版下载「安卓版」-太平洋下载中心
+[2020-11-26 03:39:13.279] ##fromSmallType == 阅读
+[2020-11-26 03:39:13.279] ##smallType == 资讯阅读
+[2020-11-26 03:39:13.279] ##packageName == com.hnr.dxxw
+[2020-11-26 03:39:13.279] ##pic == https://pp.myapp.com/ma_pic2/0/shot_53907319_1_1604665656/550,https://pp.myapp.com/ma_pic2/0/shot_53907319_2_1604665656/550,https://pp.myapp.com/ma_pic2/0/shot_53907319_3_1604665656/550,https://pp.myapp.com/ma_pic2/0/shot_53907319_4_1604665656/550
+[2020-11-26 03:39:13.279] ##sourceUrl == https://sj.qq.com/myapp/detail.htm?apkName=com.hnr.dxxw
+[2020-11-26 03:39:13.279] ##appUpdateDate == 2020-11-06 20:27:40
+[2020-11-26 03:39:13.279] ##seoKeyword == 大象新闻,大象新闻下载,大象新闻手机版
+[2020-11-26 03:39:13.280] ##intro == 大象新闻客户端是由河南广播电视台主办的省级新闻综合客户端平台，内容以新闻为主，涵盖广播、电视、线上教育、图文、资讯、直播、评论等，立足本土，辐射中部，面向全国。本站提供大象新闻下载。
+[2020-11-26 03:39:13.280] ##updateRemark == 修复了已知的bug
+[2020-11-26 03:39:13.280] ##description == 大象新闻客户端是由河南广播电视台主办的省级新闻综合客户端平台，内容以新闻为主，涵盖广播、电视、线上教育、图文、资讯、直播、评论等，立足本土，辐射中部，面向全国。
+[2020-11-26 03:39:13.280] ##siteType == 3
+[2020-11-26 03:39:13.280] ##isList == false
+[2020-11-26 03:39:13.285] 2020-11-26 03:39:13,282 [pool-3-thread-1] INFO  yybLog - pipeline---softUrl:https://sj.qq.com/myapp/detail.htm?apkName=com.hnr.dxxw--下架状态：0
+[2020-11-26 03:39:13.439] 2020-11-26 03:39:13,438 [pool-3-thread-1] INFO  androidSpiderlog - update--[package:com.hnr.dxxw--name:大象新闻]
+[2020-11-26 03:39:13.454] 2020-11-26 03:39:13,454 [pool-3-thread-1] INFO  yybLog - 下架或者已爬取或者换站点：[package:com.hnr.dxxw--name:大象新闻]状态：0
+[2020-11-26 03:39:14.459] 2020-11-26 03:39:14,459 [http-app-a-8081-4$586225275] INFO  us.codecraft.webmagic.Spider - Spider sj.qq.com closed! 1 pages downloaded.
+[2020-11-26 03:39:14.480] 2020-11-26 03:39:14,480 [http-app-a-8081-4$586225275] INFO  androidSpiderlog - 处理中:6126851
+[2020-11-26 03:39:17.711] ==compareVersion==
+[2020-11-26 03:39:17.711] v1:  1.16.5 v2:  1.16.5
+[2020-11-26 03:39:17.711] ==compareVersion==
+[2020-11-26 03:39:17.712] result: 0
+[2020-11-26 03:39:17.712] 2020-11-26 03:39:17,712 [http-app-a-8081-4$586225275] INFO  androidSpiderlog - 审核表记录已存在,且版本没有升级!spiderDataAndroid:1.16.5;clientSpiderVersion：1.16.5
+[2020-11-26 03:39:17.798] 2020-11-26 03:39:17,798 [http-app-a-8081-4$586225275] INFO  org.gelivable.web.EnvFilter - //spider.do,4833,DR0DU0CR3CU2,192.168.242.79
+[2020-11-26 03:39:17.798]  + 1,CR:SpiderDataAndroid-6126851
+[2020-11-26 03:39:17.798]  + 2,CU:SpiderDataAndroid-6126851
+[2020-11-26 03:39:17.798]  + 3006,CR:MasterAppExt-2722508
+[2020-11-26 03:39:17.798]  + 9,CR:ClientMasterSpider-5183179[1
+[2020-11-26 03:39:17.798]  + 1,CU:SpiderDataAndroid-6126851
