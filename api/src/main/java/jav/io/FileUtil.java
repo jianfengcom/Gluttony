@@ -121,19 +121,16 @@ public class FileUtil {
         bufferedReader.close();
     }
 
-    // 写出 todo
-    public static void write(List<String> urlList) throws Exception {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("/baidu/b.txt"));
-        for (String url : urlList) {
-            writer.write(url);
-            writer.newLine();
-        }
-        writer.flush();
-        writer.close();
-    }
-    // 读入
+    /**
+     * key=读取文本每一行内容并用分隔符(,) 连接
+     * 电脑网-产品库微信小程序(pconline-pdwx)
+     *
+     * @return
+     * @throws Exception
+     * @Author cjf-pc
+     */
     public static String read() throws Exception {
-        BufferedReader reader = new BufferedReader(new FileReader("/baidu/a.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("/data/baidu/submit_api.txt"));
         StringBuilder sb = new StringBuilder();
         String str;
         while ((str = reader.readLine()) != null) {
@@ -146,6 +143,17 @@ public class FileUtil {
         urls = urls.substring(0, urls.length() - 1);
         reader.close();
         return urls;
+    }
+
+    // 写入
+    public static void write(List<String> urlList) throws Exception {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("/data/baidu/submit_api.txt"));
+        for (String url : urlList) {
+            writer.write(url);
+            writer.newLine();
+        }
+        writer.flush();
+        writer.close();
     }
 }
 
