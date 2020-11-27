@@ -14,6 +14,7 @@ public class DateUtil {
 
     /**
      * key=获取指定n天后的时间
+     * ps: n可以为负数
      *
      * @param date
      * @param number

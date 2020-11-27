@@ -159,7 +159,12 @@ public class FileUtil {
         writer.close();
     }
 
-    public static void file2File() {
+    /**
+     * key=将1个txt拆分成若干个txt
+     *
+     * @param start 日期
+     */
+    public static void file2File(Date start) {
         long startTime = System.currentTimeMillis();
         BufferedWriter writer = null;
         BufferedReader reader = null;
@@ -167,17 +172,16 @@ public class FileUtil {
             reader = new BufferedReader(new FileReader("/data/baidu/build_api.txt"));
             String str;
             int count = 0;
-            Date now = new Date();
             while ((str = reader.readLine()) != null) {
                 if (StringUtils.isEmpty(str.trim())) {
                     continue;
                 }
                 if (count % 1000 == 0) {
                     if (count != 0)
-                        now = DateUtil.next(now, DateUtil.ONE_DAY);
+                        start = DateUtil.next(start, DateUtil.ONE_DAY);
 
                     String fullName = "/data/baidu/submit_api" +
-                            DateFormatUtil.format(now, "yyyy-MM-dd") + ".txt";
+                            DateFormatUtil.format(start, "yyyy-MM-dd") + ".txt";
 
                     // 文件如果不存在, 就新建
                     File tempFile = new File(fullName);
@@ -185,6 +189,10 @@ public class FileUtil {
                         tempFile.createNewFile();
                     }
 //                    writer = new BufferedWriter(new FileWriter(fullName));
+                    if (writer != null) {
+                        writer.flush();
+                        writer.close();
+                    }
                     writer = new BufferedWriter(new OutputStreamWriter(
                             new FileOutputStream(tempFile, true), "UTF-8"));
                 }
