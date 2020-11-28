@@ -74,6 +74,7 @@ public class HttpClientUtil {
             System.out.println("statusCode=" + statusCode);
             if (statusCode == 200) {
                 String responseStr = getMethod.getResponseBodyAsString();
+                System.out.println("responseStr=" + responseStr);
                 result = JSON.parseObject(responseStr);
             }
         } catch (IOException e) {
