@@ -1,6 +1,7 @@
 package or.gelivable.web;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Description:
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class Env {
     private HttpServletRequest request;
+    private HttpServletResponse response;
 
     public HttpServletRequest getRequest() {
         return this.request;
@@ -17,6 +19,14 @@ public class Env {
 
     public void setRequest(HttpServletRequest request) {
         this.request = request;
+    }
+
+    public HttpServletResponse getResponse() {
+        return response;
+    }
+
+    public void setResponse(HttpServletResponse response) {
+        this.response = response;
     }
 
     public String param(String name, String def) {
