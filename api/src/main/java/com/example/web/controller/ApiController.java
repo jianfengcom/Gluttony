@@ -21,11 +21,6 @@ public class ApiController {
         return HttpClientUtil.postMethod(url, params);
     }
 
-    @RequestMapping("/api.do")
-    @ResponseBody
-    public String api() {
-        return "ApiController.api";
-    }
 }
 /*
 key=热部署: 构建项目过程中, 勾选上'热部署', 热部署就自动一步到位了

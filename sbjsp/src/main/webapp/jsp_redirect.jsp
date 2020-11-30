@@ -3,7 +3,7 @@
 <head>
     <title>Title</title>
 </head>
-<body>outside
+<body>jsp_redirect
 
 <%--木有就真的木有--%>
 ${msg}

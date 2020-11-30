@@ -11,11 +11,11 @@ import java.net.URLEncoder;
  * @Date 2020/11/10
  * @Version 1.0
  */
-public class StringDemo {
+public class StringUtil {
 
     /**
      * key=空格编码问题
-     * <p>
+     *
      * ps: pconline-dl
      *
      * @param spec
