@@ -26,7 +26,7 @@ public class JspController {
      */
     @RequestMapping("/hello.do")
     public String hello() {
-        return "hello";
+        return "forward";
     }
 
     /**
@@ -84,13 +84,13 @@ public class JspController {
     public void redirect2(HttpServletRequest request, HttpServletResponse response) {
         try {
 //            response.sendRedirect("/WEB-INF/jsp/dispatcher.jsp"); 错误
-            response.sendRedirect("/outside.jsp");
+            response.sendRedirect("/jsp_redirect.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void printResponse(HttpServletRequest request) {
+    public void printRequest(HttpServletRequest request) {
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String name = headerNames.nextElement();
@@ -105,7 +105,6 @@ public class JspController {
         System.out.println("isEmpty=" + headerNames.isEmpty());
 
         for (String name : headerNames) {
-            System.out.println(name);
             String value = response.getHeader(name);
             System.out.println(name + "--" + value);
         }

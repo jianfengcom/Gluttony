@@ -11,5 +11,7 @@ ${msg}
 <%--木有就显示null--%>
 <%=request.getAttribute("msg")%>
 
+<a href="referer.jsp">referer</a>
+
 </body>
 </html>
