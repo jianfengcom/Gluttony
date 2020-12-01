@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <p>% >_< %</p>
+    <p>很抱歉，该页面暂时不能访问哦！</p>
+    <p><em id="Jtime">5</em>秒后将自动返回首页</p>
+    <a href="//www.baidu.com">立刻返回首页</a>
+    <p style="color: red">真的一滴都没有了!!!</p>
+</div>
+
+<script type="text/javascript">
+    var countdown = 5;
+    function countTime() {
+        document.getElementById('Jtime').innerHTML = countdown;
+        countdown --;
+        if (countdown == -1) {
+            window.location.href = "//www.baidu.com";
+        }
+    }
+    setInterval(countTime,1000);
+</script>
+</body>
+</html>
