@@ -3,7 +3,7 @@ package jav.lang;
 import lombok.Data;
 
 /**
- * @Description: 自定义函数式接口
+ * @Description: key=自定义函数式接口
  * @Author
  * @Date 2021/1/14
  * @Version 1.0
@@ -60,3 +60,5 @@ class Brand {
 class BrandExpand {
     private String website;
 }
+
+// key=https://blog.csdn.net/weixin_42943720/article/details/82872844
