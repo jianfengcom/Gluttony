@@ -1,0 +1,23 @@
+-- pom.xml引入
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder-jsp</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+jsp文件引入标签
+<%@ taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>
+
+jsp代码里使用：
+${e:forUriComponent(param.channel)}
+
+java代码里使用：
+org.owasp.encoder.tag.ForUriComponentTag.forUriComponent(xxx);
+
+标签说明：
+https://github.com/OWASP/owasp-java-encoder/blob/main/jsp/src/main/resources/META-INF/java-encoder.tld
