@@ -26,4 +26,19 @@ public class ArrayUtil {
             return b.length() - a.length();
         };
     }
+
+    /*
+        key=判断数组是否包含目标元素
+     */
+    public static boolean contains(int[] val, int target) {
+        // 排序
+        Arrays.sort(val);
+
+        int i = Arrays.binarySearch(val, target);
+        if(i > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
