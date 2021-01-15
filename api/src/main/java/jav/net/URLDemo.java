@@ -21,7 +21,7 @@ public class URLDemo {
     public static void main(String[] args) {
         // https://apps.apple.com/cn/app/id1437708921
         String imgPath = "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/21/35/9d/21359d17-58ee-aa88-7dd5-61f097280ff3/pr_source.png/230x0w.webp";
-        String targetFullPath = "/fuck/me/now.webp";
+        String targetFullPath = "/test/pcdlc/now.webp";
         try {
             downloadImg(imgPath, targetFullPath);
         } catch (Exception e) {

@@ -21,10 +21,14 @@ public class DozerUtil {
         if (source == null)
             return list;
 
-        for (Object entity : source) {
+        source.forEach(entity -> {
             T t = transfor(entity, clazz);
             list.add(t);
-        }
+        });
+        /*for (Object entity : source) {
+            T t = transfor(entity, clazz);
+            list.add(t);
+        }*/
         return list;
     }
 
