@@ -1,0 +1,40 @@
+
+
+--PS修图学院VIP班
+shop平台: 闲鱼
+shop时间: 2019-09-11
+learn状态: 未开始
+price: 3.99RMB
+
+--PS CC2018快速入门精品课 - 免费
+gain平台: 微信公众号
+gain时间: 2019-09-11
+learn状态: 未开始
+
+--大神教你玩转excel
+shop平台: 闲鱼
+shop时间: 2020-09-19
+learn状态: 未开始
+price: 8.66RMB
+ps: 与太平洋网络企业微信-PC云学院一致
+
+--零基础Excel实战速成 - 陈世杰 - 免费
+gain平台: bilibili
+gain时间: 2020-09-19
+learn状态: 未开始
+
+--汤圆的思维导图课
+shop平台: 淘宝
+shop时间: 2019-12-24
+learn状态: 暂停中
+price: 29.90RMB
+ps: 淘宝搜'思维导图'
+
+
+
+
+
+
+
+
+
