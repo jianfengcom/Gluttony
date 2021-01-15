@@ -2,6 +2,8 @@ package jav.lang;
 
 import lombok.Data;
 
+import java.util.Arrays;
+
 /**
  * @Description: key=自定义函数式接口
  * @Author
@@ -48,6 +50,52 @@ public class FuncIntf {
     public interface Comsumer<A, B> {
         void apply(A a, B b);
     }
+
+    /*
+        使用自定义静态方法替代lambda
+        使用类库静态方法替代lambda
+        常规
+
+        --补充
+        Supplier
+        生产者接口,不接受参数,有返回值
+
+        Consumer
+        消费者接口,只接受参数,无返回值
+
+        --下面的有时间可以尝试
+        使用super父类方法替代Lambda
+        使用this本类方法替代Lambda
+        类的构造器 FuncIntf::new
+        数组构造器 int[]::new
+     */
+    /*public static void main(String[] args) {
+        String[] sArr = {"BB", "我好挂住你啊"};
+        callApply(FuncIntf::applyImpl, sArr);
+        callApply(Arrays::toString, sArr);
+        callApply(new StaticMethodComsumer() {
+            @Override
+            public String apply(String[] sArr) {
+                return null;
+            }
+        }, sArr);
+    }
+
+    public static void callApply(StaticMethodComsumer comsumer, String[] sArr) {
+        String ret = comsumer.apply(sArr);
+        System.out.println(ret);
+    }
+    public static String applyImpl(String[] sArr) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : sArr) {
+            sb.append(s + ", ");
+        }
+        return sb.substring(0, sb.length() - 2);
+    }
+
+    public interface StaticMethodComsumer{
+        String apply(String[] sArr);
+    }*/
 }
 
 @Data
@@ -60,5 +108,3 @@ class Brand {
 class BrandExpand {
     private String website;
 }
-
-// key=https://blog.csdn.net/weixin_42943720/article/details/82872844

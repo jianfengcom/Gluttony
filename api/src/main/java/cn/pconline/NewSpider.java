@@ -10,12 +10,15 @@ import java.io.UnsupportedEncodingException;
  * @Date 2020/11/28
  * @Version 1.0
  */
-public class DlNewSpider {
-//    public static String PROXY_URL = "http://t-proxy.pc.com.cn/";
-//    public static String PROXY_URL = "http://192.168.12.98/"; // 线上环境
+public class NewSpider {
+
+    /*
+        key=打印代理IP
+        public static String PROXY_URL = "http://t-proxy.pc.com.cn/";
+        public static String PROXY_URL = "http://192.168.12.98/"; // 线上环境
+     */
     public static String PROXY_URL = "http://proxy.pc.com.cn/";
 
-    // 打印代理IP
     public static void getHost() {
         String url = System.currentTimeMillis() + "";
         try {
