@@ -1,0 +1,61 @@
+--jdk
+jdk1.6.0_45
+jdk1.7.0_79
+jdk1.8.0_231
+
+--maven
+apache-maven-3.2.5
+apache-maven-3.3.9 (new)
+apache-maven-3.5.4
+
+--tomcat
+apache-tomcat-7.0.76
+apache-tomcat-8.5.34
+
+--redis
+redis-desktop-manager-0.9.3.817.exe
+
+--Firefox
+Firefox 49.0.2
+
+--idea
+ideaIU-2018.2.1.win.zip
+
+--git
+Git-2.8.1-64-bit.exe
+
+--svn
+TortoiseSVN-1.10.5.msi
+VisualSVN-Server-2.1.9.msi
+
+--mysql
+mysql-5.5.25-win32.msi
+
+--navicat
+Navicat_for_MySQL_11.0.10.exe
+
+--baiduyun
+百度网盘高速无限制
+
+--vpn 海王
+Shadowsocks-4.1.9.2.zip (now)
+
+--securecrt
+SecureCRT_8.0.0.7z
+
+--xmind8
+xmind-8-update9-windows.exe
+
+--vpn pc
+太平洋网络VPN接入程序.zip
+
+--远程 pc
+向日葵远程工具和教程
+
+--nginx
+nginx-1.8.0.zip (now)
+
+--resin pc
+resin-pro-3.1.8.zip (now)
+
+--nginx pc
