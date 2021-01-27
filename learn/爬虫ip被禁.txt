@@ -1,0 +1,5 @@
+爬虫IP被禁的简单解决方法（转）
+https://blog.csdn.net/qq_17312239/article/details/88978782
+
+https://www.zhihu.com/question/31427895/answers/updated
+https://github.com/wycm/zhihu-crawler
