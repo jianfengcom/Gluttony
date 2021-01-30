@@ -221,6 +221,31 @@ public class FileUtil {
             }
         }
     }
+
+    /**
+     * key=遍历指定文件下所有子文件 (not a directory)
+     * @param path 文件夹绝对路径
+     */
+    public static void showFiles(String path){
+        File file = new File(path);
+        if(file.exists()){
+            // 如果是文件，直接打印
+            if(file.isFile()){
+                // file.getAbsolutePath()获取对象的绝对路径（包含文件名）
+                System.out.println(file.getAbsolutePath());
+            }else{
+                // 罗列出当前目录下所有的文件对象
+                File[] files = file.listFiles();
+
+                // 遍历当前目前下所有的文件对象
+                // 递归
+                for(File f : files){
+                    System.out.println(f.getAbsolutePath());
+                    FileUtil.showFiles(f.getAbsolutePath());
+                }
+            }
+        }
+    }
 }
 
 
