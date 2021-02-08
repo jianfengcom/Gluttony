@@ -1,5 +1,7 @@
 package or.apache.http.client;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -102,6 +104,9 @@ public class HttpClientUtil {
              */
             HttpPost method = new HttpPost(url);
 
+            method.addHeader("Content-type","application/json; charset=utf-8");
+            method.setHeader("Accept", "application/json");
+
             // setConfig,添加配置,如设置请求超时时间,连接超时时间
             RequestConfig reqConfig = RequestConfig.custom()
                     .setSocketTimeout(SOCKET_TIME_OUT)
@@ -142,12 +147,26 @@ public class HttpClientUtil {
     }
 
     public static void main(String[] args) {
+        List<LadderProductVo> list = new ArrayList<>();
         Map<String, Object> params = new HashMap<>();
-        params.put("ladderId", "1");
+        params.put("ladderId", 1L);
         params.put("pv", "苹果A14");
-        params.put("callback", "callback");
+        // params.put("callback", "callback");
 //        String url = "http://local.pconline.com.cn:8082/api/tiantitu/mini";
         String url = "http://mall.pconline.com.cn/api/tiantitu/mini";
-        post(url, params, "UTF-8");
+        String ret = post(url, params, "UTF-8");
+        System.out.println("ret=" + ret);
+        JSONObject jsonObject = JSONObject.parseObject(ret);
+        JSONArray data = jsonObject.getJSONArray("data");
+        if (data != null && data.size() > 0) {
+            for (int i = 0; i < data.size(); i++) {
+                LadderProductVo vo = new LadderProductVo();
+                vo.setId(data.getJSONObject(i).getLong("productId"));
+                vo.setName(data.getJSONObject(i).getString("productName"));
+                list.add(vo);
+            }
+        }
+
+        System.out.println(list);
     }
 }
