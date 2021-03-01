@@ -1,0 +1,8 @@
+##none: HTTP客户端 - Retrofit&SpringBoot
+
+-- 概论
+Retrofit是类型安全的HTTP客户端，其最大的特性是支持通过接口的方式发起HTTP请求
+retrofit-spring-boot-starter实现了Retrofit与spring-boot框架快速整合
+
+-- github
+https://github.com/LianjiaTech/retrofit-spring-boot-starter
