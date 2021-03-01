@@ -4,16 +4,10 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-/**
- * @Description:
- * @Author
- * @Date 2020/12/24
- * @Version 1.0
- */
-
 @Component
 public class SendEmailListener implements ApplicationListener<SendEmailEvent> {
-    @Async
+
+    @Async // 开启异步
     @Override
     public void onApplicationEvent(SendEmailEvent event) {
         String content = event.getContent();
@@ -22,13 +16,13 @@ public class SendEmailListener implements ApplicationListener<SendEmailEvent> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(content.equals("有内鬼")){
+        if(content.equals("邮件1:有内鬼")){ // 验证异步
             try {
                 Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("SendEmailListener.onApplicationEvent: content=" + content);
+        System.out.println("--receive:" + content);
     }
 }
