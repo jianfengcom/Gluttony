@@ -9,66 +9,45 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * @Description:
- * @Author
- * @Date 2020/11/13
- * @Version 1.0
- */
 public class FileUtil {
 
-    /**
-     * key=读取文件, 并打印到控制台
-     *
-     * @param file
-     * @throws Exception
-     */
-    public static void readLine(File file) throws Exception {
-        // 创建一个读取文件的流对象
-        FileReader fileReader = new FileReader(file);
-        // 用BufferedReader封装一下，读取效率更高
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        // 定义一个空串
-        String str;
-        // bufferedReader.readLine()是读取文件的一行，如果有多行，会逐行读取。
-        // 当每一行不为空时则把内容打印到控制台中; 也可以存到写入的流中，把内容写到文本里
-        while ((str = bufferedReader.readLine()) != null) {
-            System.out.println(str);
-        }
-        // 最后不要忘记关闭 流
-        fileReader.close();
-    }
-
-    /**
-     * key=读取文件
-     *
-     * @param file
-     * @return 文件文本内容
+    /*
+        ##: 读取File
      */
     public static String readFileContent(File file) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuffer result = null;
+        BufferedReader bufferedReader = null;
 
-        BufferedReader reader = null;
         FileReader fileReader;
         try {
-            fileReader = new FileReader(file); // 创建一个读取文件的流对象
-            reader = new BufferedReader(fileReader); // 用BufferedReader封装一下
-            String tempStr;
-            while ((tempStr = reader.readLine()) != null) {
-                stringBuffer.append(tempStr);
+            result = new StringBuffer();
+            // 创建一个读取文件的流对象 FileReader
+            // 用BufferedReader封装一下，读取效率更高
+            bufferedReader = new BufferedReader(new FileReader(file));
+
+            /*
+                bufferedReader.readLine(): 读取文件的一行，如果有多行，会逐行读取。
+             */
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                result.append(line);
+
+                // 控制台
+                // System.out.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (reader != null) {
+            // 最后不要忘记关闭流
+            if (bufferedReader != null) {
                 try {
-                    reader.close();
+                    bufferedReader.close();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
         }
-        return stringBuffer.toString();
+        return result.toString();
     }
 
     /**
@@ -126,7 +105,7 @@ public class FileUtil {
 
     /**
      * key=读取文本每一行内容并用分隔符(,) 连接
-     * 电脑网-产品库微信小程序(pconline-pdwx)
+     * 电脑网-产品库微信小程序(pc-pdwx)
      *
      * @return
      * @throws Exception
