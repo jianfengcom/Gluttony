@@ -43,7 +43,7 @@ public class PatternDemo {
     /**
      * key=过滤<img>
      * <img src="http://img.pconline.com.cn/images/upload/upc/tx/pc_best/2011/13/c89/240380649_1605244147.jpg">
-     * 电脑网-今日聚超值(pconline-best)
+     * 电脑网-今日聚超值(pc-best)
      *
      * @param content
      * @return
