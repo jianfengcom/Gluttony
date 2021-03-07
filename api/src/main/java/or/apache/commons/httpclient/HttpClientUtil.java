@@ -91,34 +91,46 @@ public class HttpClientUtil {
     }
 
     /**
-     * key=HttpClient
-     * 电脑网-产品库微信小程序(pc-pdwx)
+     * ##: get
+     * ##: wait 代理
      *
      * @param url
-     * @return
+     * @Description
      * @Author cjf-pc
+     * @Date
+     * @From 电脑网-产品库微信小程序(pc-pdwx)
+     * @Function BaiduService.get()
+     * @Version 1.0
      */
-    public static JSONObject getMethod(String url) {
-        JSONObject result = null;
-
-        HttpClient httpClient = new HttpClient();
-        httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(15000);
-
-        GetMethod getMethod = new GetMethod(url);
-        getMethod.getParams().setParameter(HttpMethodParams.SO_TIMEOUT, 60000);
+    public static String getMethod(String url) {
+        HttpClient httpClient;
+        GetMethod getMethod;
 
         try {
+            httpClient = new HttpClient();
+
+            // 连接超时
+            httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(3000);
+            // 读取数据超时
+            httpClient.getHttpConnectionManager().getParams().setSoTimeout(3000);
+
+            getMethod = new GetMethod(url);
+
             // 执行GET方法
             int statusCode = httpClient.executeMethod(getMethod);
-            System.out.println("statusCode=" + statusCode);
+
+            int time = 0;
+            while (HttpStatus.SC_REQUEST_TIMEOUT == statusCode && time++ < 3) {
+                statusCode = httpClient.executeMethod(getMethod);
+            }
+
             if (statusCode == 200) {
-                String responseStr = getMethod.getResponseBodyAsString();
-                System.out.println("responseStr=" + responseStr);
-                result = JSON.parseObject(responseStr);
+                return getMethod.getResponseBodyAsString();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result;
+        return null;
     }
+    
 }
