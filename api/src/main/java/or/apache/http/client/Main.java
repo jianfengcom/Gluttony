@@ -3,6 +3,8 @@ package or.apache.http.client;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,12 +20,19 @@ public class Main {
     public static void post() {
         List<Vo> list = new ArrayList<>();
         Map<String, Object> params = new HashMap<>();
+        String pv = "苹果A14";
+        try {
+            pv = URLDecoder.decode(pv, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
         params.put("ladderId", 1L);
-        params.put("pv", "苹果A14");
+        params.put("pv", pv);
 
         // http://local.pconline.com.cn:8082/api/tiantitu/mini
         String url = "http://mall.pconline.com.cn/api/tiantitu/mini";
-        String source = HttpClientUtil.post(url, params, DEFAULT_CHARSET);
+        String source = HttpClientUtil.post(url, params, "UTF-8");
         JSONObject target = HttpClientUtilHelp.toJson(source);
 
         JSONArray data = target.getJSONArray("data");
