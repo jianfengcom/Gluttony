@@ -16,7 +16,13 @@ public class Main {
     private static final String DEFAULT_CHARSET = "UTF-8";
 
     public static void main(String[] args) {
-        post();
+        get();
+    }
+
+    public static void get() {
+        String url = "http://mall.pconline.com.cn/api/tiantitu/new";
+        String source = HttpClientUtil.getMethod(url);
+        System.out.println(source);
     }
 
     /**
