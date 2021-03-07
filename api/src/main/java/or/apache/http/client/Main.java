@@ -18,6 +18,9 @@ public class Main {
         post();
     }
 
+    /**
+     * ##: 中文编码
+     */
     public static void post() {
         List<Vo> list = new ArrayList<>();
         Map<String, Object> params = new HashMap<>();
