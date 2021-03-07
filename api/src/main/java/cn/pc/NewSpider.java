@@ -20,8 +20,8 @@ public class NewSpider {
      * @Description
      * @Author
      * @Date
-     * @From ProxyIpUtils.java
-     * @Function
+     * @From
+     * @Function ProxyIpUtils.java
      * @Version 1.0
      */
     public static void getHost(String url) {

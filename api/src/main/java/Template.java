@@ -7,8 +7,8 @@ public class Template {
      * @Description 从360的软件终端页-pc获取apk下载链接 修改为 wap
      * @Author chenjianfeng1
      * @Date 2020/11/28
-     * @From ProxyIpUtils.java
-     * @Function 爬虫代理IP
+     * @From
+     * @Function ProxyIpUtils.java
      * @Version 1.0
      */
     public static void main(String url) {
