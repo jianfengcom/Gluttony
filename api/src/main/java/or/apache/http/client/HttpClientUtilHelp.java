@@ -1,5 +1,6 @@
 package or.apache.http.client;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
@@ -17,5 +18,13 @@ public class HttpClientUtilHelp {
             }
         }
         return nameValuePairs;
+    }
+
+    public static JSONObject toJson(String source) {
+        if (source == null) {
+            return null;
+        }
+
+        return JSONObject.parseObject(source);
     }
 }

@@ -2,7 +2,6 @@ package or.apache.http.client;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -10,14 +9,13 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.util.*;
 
 /**
- * @Description: org.apache.httpcomponents » httpclient  CloseableHttpClient
+ * @Description org.apache.httpcomponents » httpclient  CloseableHttpClient
  * @Author
  * @Date 2020/11/27
  * @Version 1.0
@@ -42,7 +40,7 @@ public class HttpClientUtil {
      *
      * @param url
      * @param charset "UTF-8"
-     * @Description:
+     * @Description
      * @Author
      * @Date
      * @From
@@ -88,7 +86,7 @@ public class HttpClientUtil {
      *
      * @param url
      * @param charset "UTF-8"
-     * @Description:
+     * @Description
      * @Author
      * @Date
      * @From
