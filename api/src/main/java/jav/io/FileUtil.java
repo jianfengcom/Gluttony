@@ -100,69 +100,6 @@ public class FileUtil {
     }
 
     /**
-     * key=将1个txt拆分成若干个txt
-     *
-     * @param start 日期
-     */
-    public static void file2File(Date start) {
-        long startTime = System.currentTimeMillis();
-        BufferedWriter writer = null;
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader("/data/baidu/build_api.txt"));
-            String str;
-            int count = 0;
-            while ((str = reader.readLine()) != null) {
-                if (StringUtils.isEmpty(str.trim())) {
-                    continue;
-                }
-                if (count % 1000 == 0) {
-                    if (count != 0)
-                        start = DateUtil.next(start, DateUtil.ONE_DAY);
-
-                    String fullName = "/data/baidu/submit_api" +
-                            DateFormatUtil.format(start, "yyyy-MM-dd") + ".txt";
-
-                    // 文件如果不存在, 就新建
-                    File tempFile = new File(fullName);
-                    if (!tempFile.exists()) {
-                        tempFile.createNewFile();
-                    }
-//                    writer = new BufferedWriter(new FileWriter(fullName));
-                    if (writer != null) {
-                        writer.flush();
-                        writer.close();
-                    }
-                    writer = new BufferedWriter(new OutputStreamWriter(
-                            new FileOutputStream(tempFile, true), "UTF-8"));
-                }
-                writer.write(str.trim());
-                writer.newLine();
-                count++;
-            }
-            System.out.println("写入文件耗时：" + (System.currentTimeMillis() - startTime) + "毫秒");
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.flush();
-                    writer.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /**
      * key=遍历指定文件下所有子文件 (not a directory)
      * @param path 文件夹绝对路径
      */
