@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +23,8 @@ public class Main {
         Map<String, Object> params = new HashMap<>();
         String pv = "苹果A14";
         try {
-            pv = URLDecoder.decode(pv, "UTF-8");
+            // 编码
+            pv = URLEncoder.encode(pv, "UTF-8"); // 解码: URLDecoder.decode(pv, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
