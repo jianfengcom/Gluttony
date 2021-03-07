@@ -14,7 +14,7 @@ public class SendEmailConfig {
     /**
      * ##: 监听事件实现
      *
-     * @Description: 监听事件, 允许异步并开启异步=SendEmailListener.onApplicationEvent()方法不用处理完一个事件对象才能处理一个事件对象
+     * @Description 监听事件, 允许异步并开启异步=SendEmailListener.onApplicationEvent()方法不用处理完一个事件对象才能处理一个事件对象
      * @Author
      * @Date
      * @From
