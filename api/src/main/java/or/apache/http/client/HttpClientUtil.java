@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * @Description org.apache.httpcomponents » httpclient  CloseableHttpClient
+ * @Description 推荐 org.apache.httpcomponents » httpclient  CloseableHttpClient
  * @Author
  * @Date 2020/11/27
  * @Version 1.0
