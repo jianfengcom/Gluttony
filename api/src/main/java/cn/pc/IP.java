@@ -8,7 +8,7 @@ public class IP {
      * ##: IP
      *
      * @param request 请求对象
-     * @Description: 获取客户端的IP
+     * @Description 获取客户端的IP
      * @Author
      * @Date
      * @From

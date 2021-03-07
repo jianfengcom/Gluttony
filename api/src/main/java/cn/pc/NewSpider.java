@@ -14,14 +14,14 @@ public class NewSpider {
     public static String PROXY_URL = "http://proxy.pc.com.cn/";
 
     /**
-     * ##: 爬虫代理IP
+     * ##: 获取代理IP
      *
      * @param url 抓取url
-     * @Description: 从360的软件终端页-pc获取apk下载链接 修改为 wap
-     * @Author chenjianfeng1
-     * @Date 2020/11/28
+     * @Description
+     * @Author
+     * @Date
      * @From ProxyIpUtils.java
-     * @Function 爬虫代理IP
+     * @Function
      * @Version 1.0
      */
     public static void getHost(String url) {
