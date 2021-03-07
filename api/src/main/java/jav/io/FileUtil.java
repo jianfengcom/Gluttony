@@ -50,57 +50,18 @@ public class FileUtil {
         return result.toString();
     }
 
-    /**
-     * key=读取文件
-     * 读取指定的行的内容
-     * ps: 记得控制台键入指定的行数
-     *
-     * @param fileName
-     * @throws IOException
+    /*
+        ##: 读取指定行
      */
     public static void readLine(String fileName) throws IOException {
-        int lines = getTotalLines(fileName); // 获取文件的内容的总行数
-        System.out.println("本文总共有: " + lines + "行");
+        int lines = FileUtilHelp.getTotalLines(fileName); // 获取文件的内容的总行数
+        System.out.println("本文行数:" + lines);
 
         while (true) {
             Scanner sc = new Scanner(System.in);
             int lineNumber = sc.nextInt(); // 指定读取的行号
-            readLineVarFile(fileName, lineNumber); //读取指定行的内容
+            FileUtilHelp.readLineVarFile(fileName, lineNumber); //读取指定行的内容
         }
-    }
-
-    // 文件内容的总行数
-    private static int getTotalLines(String fileName) throws IOException {
-        // 使用缓冲区的方法将数据读入到缓冲区中
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
-        LineNumberReader lineNumberReader = new LineNumberReader(bufferedReader);
-        String contentLine = lineNumberReader.readLine(); // 行内容
-        int lines = 0;
-        while (contentLine != null) {
-            lines++;
-            contentLine = lineNumberReader.readLine();
-        }
-        lineNumberReader.close();
-        bufferedReader.close();
-        return lines; // 返回行数
-    }
-
-    // 输出本行内容
-    private static void readLineVarFile(String fileName, int lineNumber) throws IOException {
-        // 使用缓冲区的方法将数据读入到缓冲区中
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
-        String contentLine = bufferedReader.readLine(); // 行内容
-        if (lineNumber <= 0 || lineNumber > getTotalLines(fileName)) { // 确定输入的行数是否有内容
-            System.out.println("不在文件的行数范围之内。");
-        }
-        int num = 0;
-        while (contentLine != null) {
-            if (lineNumber == ++num) {
-                System.out.println("第" + lineNumber + "行: " + contentLine);
-            }
-            contentLine = bufferedReader.readLine();
-        }
-        bufferedReader.close();
     }
 
     /**
