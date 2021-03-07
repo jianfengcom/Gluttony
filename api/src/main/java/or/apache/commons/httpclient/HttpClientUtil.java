@@ -112,7 +112,7 @@ public class HttpClientUtil {
      * @Description
      * @Author cjf-pc
      * @Date
-     * @From 电脑网-产品库微信小程序(pc-pdwx)
+     * @From 电脑网-产品库微信小程序(pconline-pdwx)
      * @Function BaiduService.get()
      * @Version 1.0
      */
