@@ -1,10 +1,7 @@
 package or.gelivable.web;
 
-/**
- * @Description:
- * @Author
- * @Date 2020/11/28
- * @Version 1.0
+/*
+    ##: geli
  */
 public class EnvUtils {
     private static ThreadLocal<Env> threadLocal = new ThreadLocal<Env>() {

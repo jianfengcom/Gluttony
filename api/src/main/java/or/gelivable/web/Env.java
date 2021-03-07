@@ -3,11 +3,8 @@ package or.gelivable.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @Description:
- * @Author
- * @Date 2020/11/28
- * @Version 1.0
+/*
+    ##: geli
  */
 public class Env {
     private HttpServletRequest request;
