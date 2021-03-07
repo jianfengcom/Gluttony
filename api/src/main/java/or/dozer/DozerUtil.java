@@ -6,11 +6,8 @@ import org.dozer.Mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Description: key=对象转换工具(数据复制)
- * @Author
- * @Date 2021/1/14
- * @Version 1.0
+/*
+    ##:拷贝
  */
 public class DozerUtil {
 
@@ -46,33 +43,17 @@ public class DozerUtil {
         mapper.map(source, target);
     }
 
-    public static void main(String[] args) {
-        Ninja ninja = new Ninja();
-        ninja.setNinjaId(7L);
-        ninja.setNation("木叶村");
-        CopyNinja copyNinja = transfor(ninja, CopyNinja.class);
-        System.out.println(copyNinja);
-
-        List<Ninja> ninjaList = new ArrayList<>();
-        ninjaList.add(ninja);
-
-        ninja = new Ninja();
-        ninja.setNinjaId(9L);
-        ninja.setNation("砂隐村");
-
-        ninjaList.add(ninja);
-        List<CopyNinja> copyNinjaList = transforList(ninjaList, CopyNinja.class);
-        System.out.println(copyNinjaList);
-
-        CopyNinja cn = new CopyNinja();
-        transfor(ninja, cn);
-        System.out.println(cn);
-    }
 }
 
+
 /*
-// Class org.dozer.util.ReflectionUtils can not access a member of class or.dozer.CopyNinja with modifiers "public"
-@Data
+    如果用下面的CopyNinja类, 会报错
+
+    Caused by: java.lang.IllegalAccessException:
+    Class org.dozer.util.ReflectionUtils can not access a member of class or.dozer.CopyNinja with modifiers "public"
+    */
+
+/*@Data
 class CopyNinja {
     private Long ninjaId;
     private String nation;

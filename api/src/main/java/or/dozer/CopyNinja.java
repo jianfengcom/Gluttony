@@ -3,12 +3,6 @@ package or.dozer;
 import lombok.Data;
 import org.dozer.Mapping;
 
-/**
- * @Description:
- * @Author
- * @Date 2021/1/14
- * @Version 1.0
- */
 @Data
 public class CopyNinja {
     private Long ninjaId;
