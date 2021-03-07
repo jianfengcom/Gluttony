@@ -6,8 +6,10 @@ import org.springframework.util.StringUtils;
 
 import java.io.*;
 import java.util.Date;
+import java.util.List;
 
 public class ProductWx {
+    private static final String fileName = "/data/baidu/build_api.txt";
 
     /**
      * ##: 推 电脑网百度小程序的api
@@ -78,4 +80,56 @@ public class ProductWx {
             }
         }
     }
+
+    /**
+     * ##: 读取每一行, 并用分隔符连接
+     *
+     * @Description
+     * @Author chenjianfeng1
+     * @Date
+     * @From 电脑网-产品库微信小程序(pconline-pdwx)
+     * @Function
+     * @Version 1.0
+     */
+    public static String read(String fileName) throws Exception {
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (StringUtils.isEmpty(line.trim())) {
+                continue;
+            }
+            sb.append(line.trim() + ",");
+        }
+        reader.close();
+
+
+        String result = sb.toString();
+        if (result.length() > 0) {
+            return result.substring(0, result.length() - 1);
+        }
+
+        return "";
+    }
+
+    /**
+     * ##: 写入
+     *
+     * @Description
+     * @Author chenjianfeng1
+     * @Date
+     * @From 电脑网-产品库微信小程序(pconline-pdwx)
+     * @Function
+     * @Version 1.0
+     */
+    public static void write(List<String> urlList, String fileName) throws Exception {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        for (String url : urlList) {
+            writer.write(url);
+            writer.newLine();
+        }
+        writer.flush();
+        writer.close();
+    }
+
 }

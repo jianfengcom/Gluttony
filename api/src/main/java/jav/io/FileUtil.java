@@ -1,12 +1,6 @@
 package jav.io;
 
-import jav.text.DateFormatUtil;
-import jav.util.DateUtil;
-import org.springframework.util.StringUtils;
-
 import java.io.*;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class FileUtil {
@@ -64,44 +58,8 @@ public class FileUtil {
         }
     }
 
-    /**
-     * key=读取文本每一行内容并用分隔符(,) 连接
-     * 电脑网-产品库微信小程序(pc-pdwx)
-     *
-     * @return
-     * @throws Exception
-     * @Author cjf-pc
-     */
-    public static String read() throws Exception {
-        BufferedReader reader = new BufferedReader(new FileReader("/data/baidu/submit_api.txt"));
-        StringBuilder sb = new StringBuilder();
-        String str;
-        while ((str = reader.readLine()) != null) {
-            if (StringUtils.isEmpty(str.trim())) {
-                continue;
-            }
-            sb.append(str.trim() + ",");
-        }
-        String urls = sb.toString();
-        urls = urls.substring(0, urls.length() - 1);
-        reader.close();
-        return urls;
-    }
-
-    // 写入
-    public static void write(List<String> urlList) throws Exception {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("/data/baidu/build_api.txt"));
-        for (String url : urlList) {
-            writer.write(url);
-            writer.newLine();
-        }
-        writer.flush();
-        writer.close();
-    }
-
-    /**
-     * key=遍历指定文件下所有子文件 (not a directory)
-     * @param path 文件夹绝对路径
+    /*
+        ##: 遍历指定文件下所有子文件(不包含子文件夹)
      */
     public static void showFiles(String path){
         File file = new File(path);
@@ -117,7 +75,6 @@ public class FileUtil {
                 // 遍历当前目前下所有的文件对象
                 // 递归
                 for(File f : files){
-                    System.out.println(f.getAbsolutePath());
                     FileUtil.showFiles(f.getAbsolutePath());
                 }
             }
