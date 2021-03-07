@@ -4,25 +4,15 @@ import org.apache.commons.httpclient.NameValuePair;
 
 import java.util.Map;
 
-/**
- * @Description:
- * @Author
- * @Date 2020/11/16
- * @Version 1.0
- */
 public class MapUtil {
 
-    /**
-     *
-     * @param params 请求参数
-     * @return
-     */
-    public static NameValuePair[] handleParams(Map<String,String> params) {
+    public static NameValuePair[] handleParams(Map<String, Object> params) {
         NameValuePair[] pairs = new NameValuePair[params.size()];
         int index = 0;
-        for (Map.Entry<String, String> entry : params.entrySet()) {
-            pairs[index++] = new NameValuePair(entry.getKey(), entry.getValue());
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            pairs[index++] = new NameValuePair(entry.getKey(), entry.getValue().toString());
         }
         return pairs;
     }
+
 }
