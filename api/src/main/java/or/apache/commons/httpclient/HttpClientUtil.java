@@ -1,14 +1,11 @@
 package or.apache.commons.httpclient;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import jav.util.MapUtil;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.params.HttpMethodParams;
 
 import java.io.*;
 import java.util.Map;
@@ -34,9 +31,9 @@ public class HttpClientUtil {
      */
     public static String postMethod(String url, Map<String, Object> params) {
         HttpClient httpClient;
-        PostMethod postMethod;
-        InputStream stream;
-        BufferedReader reader;
+        PostMethod postMethod = null;
+        InputStream stream = null;
+        BufferedReader reader = null;
 
         try {
             httpClient = new HttpClient();
@@ -54,6 +51,10 @@ public class HttpClientUtil {
             // 设置请求参数
             NameValuePair[] pairs = MapUtil.handleParams(params);
             postMethod.setRequestBody(pairs);
+
+            // 默认请求编码为ISO-8859-1, 可通过设置Content-Type更改请求编码
+            System.out.println("默认请求编码=" + postMethod.getRequestCharSet());
+            postMethod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
 
             // 执行POST方法
             int statusCode = httpClient.executeMethod(postMethod);
@@ -81,13 +82,26 @@ public class HttpClientUtil {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (postMethod != null) {
+                postMethod.releaseConnection();
+            }
+            if (stream != null) {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return null;
-    }
-
-    public static void filter(String args) {
-        // 过滤空行
-        args.replaceAll("(?m)^\\s*$(\\n|\\r\\n)", "");
     }
 
     /**
@@ -104,7 +118,7 @@ public class HttpClientUtil {
      */
     public static String getMethod(String url) {
         HttpClient httpClient;
-        GetMethod getMethod;
+        GetMethod getMethod = null;
 
         try {
             httpClient = new HttpClient();
@@ -129,8 +143,12 @@ public class HttpClientUtil {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (getMethod != null) {
+                getMethod.releaseConnection();
+            }
         }
         return null;
     }
-    
+
 }
