@@ -15,6 +15,8 @@
     env.setRequest(request);
     String packageName = env.param("packageName", "");
     System.out.println("packageName=" + packageName);
+    String ipAddr = HttpClientUtil.getIpAddr(request);
+    System.out.println("ipAddr=" + ipAddr);
 %>
 
 <%
