@@ -4,11 +4,8 @@ import javax.net.ssl.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
-/**
- * @Description:
- * @Author
- * @Date 2020/11/6
- * @Version 1.0
+/*
+    ##: ssl
  */
 public class SSLUtils {
     public static void ignoreSSL() throws Exception {
