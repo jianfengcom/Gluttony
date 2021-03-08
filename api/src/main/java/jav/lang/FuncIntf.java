@@ -2,13 +2,8 @@ package jav.lang;
 
 import lombok.Data;
 
-import java.util.Arrays;
-
-/**
- * @Description: key=自定义函数式接口
- * @Author
- * @Date 2021/1/14
- * @Version 1.0
+/*
+    ##: 函数式接口
  */
 public class FuncIntf {
 
@@ -23,8 +18,7 @@ public class FuncIntf {
     }
 
     // 定义"函数式接口"时,为防止发生定义错误.可以使用@FunctionalInterface注解,强制按照"函数式接口"的语法检查,如果语法错误.编译器报错.
-    // 可以去掉@FunctionalInterface注解
-    @FunctionalInterface
+    @FunctionalInterface // 注解非强制性
     public interface Comsumer {
         void nothing();
     }*/
