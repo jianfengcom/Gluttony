@@ -3,11 +3,8 @@ package jav.lang;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @Description: key=线程池
- * @Author
- * @Date 2020/11/10
- * @Version 1.0
+/*
+    ##: wait 线程池
  */
 public class ThreadDemo {
     public static void main(String[] args) {
