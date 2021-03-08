@@ -2,8 +2,8 @@ package jav.math;
 
 import java.math.BigDecimal;
 
-/**
- * key=pdd-红包算法
+/*
+    ##: wait pdd-红包算法
  */
 public class HongBaoUtil {
     /**
