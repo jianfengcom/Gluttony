@@ -1,30 +1,32 @@
 <%@ page import="or.gelivable.web.EnvUtils" %>
 <%@ page import="or.gelivable.web.Env" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
     Env env = EnvUtils.getEnv();
     env.setRequest(request);
     String p = env.param("p", "");
-
     request.setAttribute("p", p);
+
 %>
+
 <html>
 <head>
     <title>普通文件upload_quick.jsp(必须先通过passport3登录)</title>
     <script type="text/javascript" src="js/upload-1.1.js"></script>
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
         function callback3(data, params) {
             var orgPicUrl = '';
-            if(data.files) {
-                for(var i in data.files) {
+            if (data.files) {
+                for (var i in data.files) {
                     var file = data.files[i];
-                    if(file.isorg == 1){//是原图
+                    if (file.isorg == 1) {//是原图
                         var url = file.url;
                         var reg = /^.*_\d*x\d*\.\w*$/;
-                        if(url && !reg.test(url)){
+                        if (url && !reg.test(url)) {
                             orgPicUrl = url;
                         }
                     }
@@ -43,7 +45,7 @@
 
             var picvalue = $("#uploadPic").val();
             var pos = picvalue.lastIndexOf(".");
-            var lastname = picvalue.substring(pos,picvalue.length); //此处文件后缀名也可用数组方式获得str.split(".")
+            var lastname = picvalue.substring(pos, picvalue.length); //此处文件后缀名也可用数组方式获得str.split(".")
 
             var params = {
                 application: uploader_systemName,
@@ -62,21 +64,87 @@
             }).upload();
         }
     </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // 点击删除按钮
+            $(".removeItem").click(function () {
+                if ($("#edit_table_body tr").size() > 1) {
+                    $(this).closest("tr").remove();
+                } else {
+                    var tr = $(this).closest("tr");
+                    tr.find("input").val("");
+                    tr.find("span").html("");
+                }
+            });
+
+            // 点击上传按钮
+            $(".uploadItem").click(function () {
+                var tr = $(this).closest("tr");
+
+                // 图片相关id 更改
+                $('#uploadPic').removeAttr("id");
+                $('#cover').removeAttr("id");
+                $('#cover1to1Img').removeAttr("id");
+                $('#cover1to1').removeAttr("id");
+
+                tr.find("[name='uploadPic']").attr("id", "uploadPic");
+                tr.find("[name='cover']").attr("id", "cover");
+                tr.find("[name='cover1to1Img']").attr("id", "cover1to1Img");
+                tr.find("[name='cover1to1']").attr("id", "cover1to1");
+
+                // 上传
+                upload();
+            });
+
+            $(".appendRow").click(function () {
+                var tr = $("#edit_table_body tr:first").clone(true);
+                tr.find("input").val("");
+                tr.find("span").html("");
+                tr.appendTo("#edit_table_body");
+            });
+
+        });
+
+    </script>
 </head>
 <body>${p}
-    <div>
-        <p style="width: 100%; height: auto;">
-            <label>1:1封面：</label>
-            <input size="60" class="required url textInput" readonly="readonly" name="cover" id="cover" /> &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="file" id="uploadPic" name="uploadPic" />
-            <input type="button" value="上传" onclick="upload();" />
-        </p>
+<div>
+    <tr style="width: 100%; height: auto;">
+        <td class="ui_text_rt" width="140">明细</td>
+    </tr>
+    <tr style="width: 100%; height: auto;">
+        <td>
+            <input type="button" value="添加明细" class="ui_input_btn01 appendRow"/>
+            <table class="edit_table" cellspacing="0" cellpadding="0" border="0">
+                <tbody id="edit_table_body">
+                <!-- 新增 -->
+                <tr>
+                    <td>
+                        <p>
+                            <label>详情图：</label>
+                            <input size="60" class="required url textInput" readonly="readonly" name="cover"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="file" name="uploadPic"/>
+                            <%--<input type="button" value="上传" onclick="upload();" />--%>
+                            <a href="javascript:;" class="uploadItem">上传图片</a>
+                        </p>
 
-        <p id="cover1to1" style="width: 100%; height: auto;display: none">
-            <label>1:1封面预览：</label>
-            <img id="cover1to1Img" src="" width="180px" height="180px" draggable="false" />
-        </p>
-    </div>
+                        <p name="cover1to1" style="width: 100%; height: auto;display: none">
+                            <label>详情图：</label>
+                            <img src="" name="cover1to1Img" width="180px" height="180px" draggable="false"/>
+                        </p>
+                    </td>
+                    <td>
+                        <a href="javascript:;" class="removeItem">删除图片</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</div>
 
 </body>
 </html>
