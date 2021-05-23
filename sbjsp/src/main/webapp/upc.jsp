@@ -142,12 +142,33 @@
             <input type="button" value="添加图片" class="ui_input_btn01 appendRow"/>
             <table class="edit_table" cellspacing="0" cellpadding="0" border="0">
                 <tbody id="edit_pics_body">
+
+                <c:if test="${empty picList}">
+                    <tr>
+                        <td>
+                            <p>
+                                <label>详情图：</label>
+                                <input size="60" class="required url textInput" readonly="readonly" name="cover" tag="cover"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="file" name="uploadPic"/>
+                                <a href="javascript:;" class="uploadItem">上传图片</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="javascript:;" class="removeItem">删除图片</a>
+                            </p>
+
+                            <p tag="cover1to1" style="width: 100%; height: auto;display: none">
+                                <label>详情图预览：</label>
+                                <img src="" tag="cover1to1Img" width="180px" height="180px" draggable="false"/>
+                            </p>
+                        </td>
+                    </tr>
+                </c:if>
+
                 <!-- 新增 -->
+                <c:forEach var="item" items="${picList}">
                 <tr>
                     <td>
                         <p>
                             <label>详情图：</label>
-                            <input size="60" class="required url textInput" readonly="readonly" name="cover" tag="cover"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input size="60" class="required url textInput" readonly="readonly" name="cover" tag="cover" value="${item}"/> &nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="file" name="uploadPic"/>
                             <a href="javascript:;" class="uploadItem">上传图片</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="javascript:;" class="removeItem">删除图片</a>
@@ -155,10 +176,11 @@
 
                         <p tag="cover1to1" style="width: 100%; height: auto;display: none">
                             <label>详情图预览：</label>
-                            <img src="" tag="cover1to1Img" width="180px" height="180px" draggable="false"/>
+                            <img src="${item}" tag="cover1to1Img" width="180px" height="180px" draggable="false"/>
                         </p>
                     </td>
                 </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </td>
