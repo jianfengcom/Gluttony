@@ -71,12 +71,19 @@
 
             // 点击删除按钮
             $(".removeItem").click(function () {
-                if ($("#edit_table_body tr").size() > 1) {
+                if ($("#edit_pics_body tr").size() > 1) {
                     $(this).closest("tr").remove();
                 } else {
                     var tr = $(this).closest("tr");
                     tr.find("input").val("");
-                    tr.find("span").html("");
+                    tr.find("img").attr("src", "");
+
+                    // 删除图片相关id
+                    tr.find("[name='uploadPic']").removeAttr("id");
+                    tr.find("[name='cover']").removeAttr("id");
+                    tr.find("[tag='cover1to1Img']").removeAttr("id");
+                    tr.find("[tag='cover1to1']").removeAttr("id");
+                    tr.find("[tag='cover1to1']").attr("style", "width: 100%; height: auto;display: none");
                 }
             });
 
@@ -92,18 +99,25 @@
 
                 tr.find("[name='uploadPic']").attr("id", "uploadPic");
                 tr.find("[name='cover']").attr("id", "cover");
-                tr.find("[name='cover1to1Img']").attr("id", "cover1to1Img");
-                tr.find("[name='cover1to1']").attr("id", "cover1to1");
+                tr.find("[tag='cover1to1Img']").attr("id", "cover1to1Img");
+                tr.find("[tag='cover1to1']").attr("id", "cover1to1");
 
                 // 上传
                 upload();
             });
 
             $(".appendRow").click(function () {
-                var tr = $("#edit_table_body tr:first").clone(true);
+                var tr = $("#edit_pics_body tr:first").clone(true);
                 tr.find("input").val("");
-                tr.find("span").html("");
-                tr.appendTo("#edit_table_body");
+                tr.find("img").attr("src", "");
+                tr.appendTo("#edit_pics_body");
+
+                // 删除图片相关id
+                tr.find("[name='uploadPic']").removeAttr("id");
+                tr.find("[name='cover']").removeAttr("id");
+                tr.find("[tag='cover1to1Img']").removeAttr("id");
+                tr.find("[tag='cover1to1']").removeAttr("id");
+                tr.find("[tag='cover1to1']").attr("style", "width: 100%; height: auto;display: none");
             });
 
         });
@@ -111,15 +125,12 @@
     </script>
 </head>
 <body>${p}
-<div>
-    <tr style="width: 100%; height: auto;">
-        <td class="ui_text_rt" width="140">明细</td>
-    </tr>
+<div style="width: 100%; height: auto;">
     <tr style="width: 100%; height: auto;">
         <td>
-            <input type="button" value="添加明细" class="ui_input_btn01 appendRow"/>
+            <input type="button" value="添加图片" class="ui_input_btn01 appendRow"/>
             <table class="edit_table" cellspacing="0" cellpadding="0" border="0">
-                <tbody id="edit_table_body">
+                <tbody id="edit_pics_body">
                 <!-- 新增 -->
                 <tr>
                     <td>
@@ -127,17 +138,14 @@
                             <label>详情图：</label>
                             <input size="60" class="required url textInput" readonly="readonly" name="cover"/> &nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="file" name="uploadPic"/>
-                            <%--<input type="button" value="上传" onclick="upload();" />--%>
-                            <a href="javascript:;" class="uploadItem">上传图片</a>
+                            <a href="javascript:;" class="uploadItem">上传图片</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:;" class="removeItem">删除图片</a>
                         </p>
 
-                        <p name="cover1to1" style="width: 100%; height: auto;display: none">
-                            <label>详情图：</label>
-                            <img src="" name="cover1to1Img" width="180px" height="180px" draggable="false"/>
+                        <p tag="cover1to1" style="width: 100%; height: auto;display: none">
+                            <label>详情图预览：</label>
+                            <img src="" tag="cover1to1Img" width="180px" height="180px" draggable="false"/>
                         </p>
-                    </td>
-                    <td>
-                        <a href="javascript:;" class="removeItem">删除图片</a>
                     </td>
                 </tr>
                 </tbody>
