@@ -80,7 +80,7 @@
 
                     // 删除图片相关id
                     tr.find("[name='uploadPic']").removeAttr("id");
-                    tr.find("[name='cover']").removeAttr("id");
+                    tr.find("[tag='cover']").removeAttr("id");
                     tr.find("[tag='cover1to1Img']").removeAttr("id");
                     tr.find("[tag='cover1to1']").removeAttr("id");
                     tr.find("[tag='cover1to1']").attr("style", "width: 100%; height: auto;display: none");
@@ -98,7 +98,7 @@
                 $('#cover1to1').removeAttr("id");
 
                 tr.find("[name='uploadPic']").attr("id", "uploadPic");
-                tr.find("[name='cover']").attr("id", "cover");
+                tr.find("[tag='cover']").attr("id", "cover");
                 tr.find("[tag='cover1to1Img']").attr("id", "cover1to1Img");
                 tr.find("[tag='cover1to1']").attr("id", "cover1to1");
 
@@ -114,10 +114,20 @@
 
                 // 删除图片相关id
                 tr.find("[name='uploadPic']").removeAttr("id");
-                tr.find("[name='cover']").removeAttr("id");
+                tr.find("[tag='cover']").removeAttr("id");
                 tr.find("[tag='cover1to1Img']").removeAttr("id");
                 tr.find("[tag='cover1to1']").removeAttr("id");
                 tr.find("[tag='cover1to1']").attr("style", "width: 100%; height: auto;display: none");
+            });
+
+            /*$("#editForm").submit(function () {
+                $.each($("#edit_pics_body tr"),function (index,item) {
+                    $(item).find("[tag='cover']").prop("name","covers["+index+"]");
+                });
+            });*/
+
+            $(".btn_submit").click(function () {
+                $("#editForm").submit();
             });
 
         });
@@ -125,6 +135,7 @@
     </script>
 </head>
 <body>${p}
+<form action="/upc.do" method="post" id="editForm">
 <div style="width: 100%; height: auto;">
     <tr style="width: 100%; height: auto;">
         <td>
@@ -136,7 +147,7 @@
                     <td>
                         <p>
                             <label>详情图：</label>
-                            <input size="60" class="required url textInput" readonly="readonly" name="cover"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input size="60" class="required url textInput" readonly="readonly" name="cover" tag="cover"/> &nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="file" name="uploadPic"/>
                             <a href="javascript:;" class="uploadItem">上传图片</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="javascript:;" class="removeItem">删除图片</a>
@@ -153,6 +164,10 @@
         </td>
     </tr>
 </div>
+<div>
+    <input type="button" value="保存图片" class="ui_input_btn01 btn_submit" />
+</div>
+</form>
 
 </body>
 </html>
